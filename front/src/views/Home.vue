@@ -1,18 +1,31 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <ProductCard
+      v-for="({ title, price, imageUrl }, key) in PRODUCTS"
+      :key="key"
+      :title="title"
+      :price="price"
+      :imageUrl="imageUrl"
+    />
+    <p>{{ PRODUCT_ERROR }}</p>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import ProductCard from "../components/ProductCard";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Home",
-  components: {
-    HelloWorld,
+  components: { ProductCard },
+  computed: {
+    ...mapGetters(["PRODUCTS", "PRODUCT_ERROR"]),
+  },
+  methods: {
+    ...mapActions(["GET_PRODUCTS"]),
+  },
+  mounted() {
+    this.GET_PRODUCTS();
   },
 };
 </script>

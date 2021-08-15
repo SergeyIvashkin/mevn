@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const http = require("http");
+const cors = require("cors");
 const { routes } = require("./scr/routes");
 
 // Подключение к бд
@@ -13,6 +14,7 @@ mongoose.connect("mongodb://localhost:27017/mevnshop", {
 
 // инициалищируем проложение
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
