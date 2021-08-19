@@ -29,7 +29,6 @@ export default {
     async GET_PRODUCTS({ commit }) {
       try {
         const products = await getProducts();
-        console.log(products);
         commit("SET_PRODUCTS", products);
       } catch (error) {
         commit("SET_PRODUCT_ERROR", error);
