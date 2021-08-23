@@ -5,6 +5,7 @@ const http = require("http");
 const cors = require("cors");
 const { routes } = require("./scr/routes");
 
+console.log(process.env.MONGO_HOST);
 // Подключение к бд
 mongoose.connect("mongodb://localhost:27017/mevnshop", {
   useCreateIndex: true,

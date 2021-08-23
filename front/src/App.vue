@@ -1,5 +1,5 @@
 <template>
-  <div id="app container">
+  <div id="app">
     <Header :categories="categories" />
     <router-view />
   </div>

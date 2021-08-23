@@ -1,9 +1,10 @@
+import { getIntent } from "../services/payment.service";
+
 export default {
   state: {
-    cart: {
-      total: 0,
-    },
+    cart: {},
     cartItems: [],
+    productError: "",
   },
   mutations: {
     IN_CART(state, product) {
@@ -16,8 +17,22 @@ export default {
         state.cartItems.push(product);
       }
     },
+    SET_PRODUCT_ERROR(state, error) {
+      state.productError = error;
+    },
+    CLEAR_CART(state) {
+      state.cartItems = [];
+    },
   },
-  actions: {},
+  actions: {
+    async HANDLE_BUY({ getters, commit }, form) {
+      try {
+        return await getIntent({ ...form, amount: getters.CART_TOTAL_PRICE });
+      } catch (error) {
+        commit("SET_PRODUCT_ERROR", error);
+      }
+    },
+  },
   getters: {
     CART_TOTAL_PRICE: ({ cartItems }) =>
       cartItems.reduce((acc, cur) => {

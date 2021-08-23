@@ -1,25 +1,23 @@
 <template>
-  <div>
-    <div class="card">
-      <div class="card__title">{{ title }} - {{ price }}</div>
-      <div class="card__img">
-        <img :src="imageUrl" alt="" />
-      </div>
-      <button
-        @click="$emit('add_or_delete_cart')"
-        class="btn-sm btn btn-primary"
-        v-if="!inCart"
-      >
-        Добавить в корзину
-      </button>
-      <button
-        @click="$emit('add_or_delete_cart')"
-        class="btn-sm btn btn-danger"
-        v-else
-      >
-        Удалить из корзину
-      </button>
+  <div class="card">
+    <div class="card__title">{{ title }} - {{ price }}</div>
+    <div class="card__img">
+      <img :src="imageUrl" alt="" />
     </div>
+    <button
+      @click="$emit('add_or_delete_cart')"
+      class="btn-sm btn btn-primary"
+      v-if="!inCart"
+    >
+      Добавить в корзину
+    </button>
+    <button
+      @click="$emit('add_or_delete_cart')"
+      class="btn-sm btn btn-danger"
+      v-else
+    >
+      Удалить из корзину
+    </button>
   </div>
 </template>
 
