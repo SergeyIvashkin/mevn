@@ -37,6 +37,7 @@ export default {
 
 <style lang="scss" scoped>
 .card {
+  padding: 5px;
   width: 305px;
   height: 305px;
   border: 2px solid black;
@@ -55,6 +56,6 @@ img {
 .btn {
   width: 55%;
   border-radius: 5px;
-  margin: auto;
+  margin: 0 auto;
 }
 </style>

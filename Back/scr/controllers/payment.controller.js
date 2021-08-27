@@ -26,7 +26,6 @@ const createPaymentIntent = async (
       products: productsIds,
       amount,
     };
-    console.log(prepareOrder);
 
     const newOrder = await new order(prepareOrder);
     const saveOrder = await newOrder.save();

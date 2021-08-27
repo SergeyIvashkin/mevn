@@ -38,5 +38,6 @@ export default {
 .home {
   display: flex;
   justify-content: space-around;
+  padding: 90px;
 }
 </style>

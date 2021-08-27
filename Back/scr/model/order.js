@@ -29,6 +29,10 @@ const schema = new Schema({
     type: String,
     default: "",
   },
+  status: {
+    type: String,
+    ref: "Pending",
+  },
   products: {
     type: Array,
     ref: "Products",

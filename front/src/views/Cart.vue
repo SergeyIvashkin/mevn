@@ -10,7 +10,6 @@
           {{ title }} - {{ price }}
         </li>
       </ul>
-      <hr />
 
       <UserForm v-if="!paymentIntent" @onFormSubmit="handleGetPayment" />
 

@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="handleSubmit">
+  <form @submit.prevent="handleSubmit" class="form">
     <div class="form-group">
       <label for="name">Ваше имя</label>
       <input
@@ -65,3 +65,11 @@ export default {
   },
 };
 </script>
+
+
+<style lang="scss" scoped>
+.form {
+  max-width: 400px;
+  margin: auto;
+}
+</style>

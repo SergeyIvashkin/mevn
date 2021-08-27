@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -5,9 +7,8 @@ const http = require("http");
 const cors = require("cors");
 const { routes } = require("./scr/routes");
 
-console.log(process.env.MONGO_HOST);
 // Подключение к бд
-mongoose.connect("mongodb://localhost:27017/mevnshop", {
+mongoose.connect(process.env.MONGO_URI, {
   useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true,
